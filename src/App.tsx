@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CalenderView } from "./components/CalenderView";
 import "./App.css";
 
 function App() {
@@ -44,11 +45,7 @@ class day{
         </article>
       )}
 
-      {nameExists && (
-        <article>
-          <h1>{nameInput + "s"} adventskalender</h1>
-        </article>
-      )}
+      <CalenderView nameExists={nameExists} nameInput={nameInput} />
     </>
   );
 }
