@@ -7,14 +7,20 @@ function App() {
   kalendern består av en array med 24 objekt  (en för varje dag till den 24:e dec)
   varje object är alltså en dag
 
-class day{
+class dayInMonth{
   name: number elr string (t. ex 1, 2, 3 osv)
   hasBeenOpened: boolean (alla är false från början)
   dateOfThisDay: date (borde vara date datatyp, vet dock inte för tillfället hur jag kan sätta ett specifikt datum för varje objekt)
 }  
  */
-  const [nameExists, setNameExists] = useState(false); //fixa så att den kollar localstorage om det finns ett namn angivet redan
-  const [nameInput, setNameInput] = useState("");
+  const [nameExists, setNameExists] = useState(
+    localStorage.getItem("memeCalenderUserName") !== null
+  );
+  const [nameInput, setNameInput] = useState(
+    localStorage.getItem("memeCalenderUserName") || ""
+  );
+
+  console.log(nameInput, nameExists);
 
   return (
     <>
