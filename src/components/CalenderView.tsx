@@ -1,4 +1,5 @@
 import { AudioPLayer } from "./AudioPlayer";
+import { Calender } from "./Calender";
 
 interface ICalenderViewProps {
   nameExists: boolean;
@@ -13,6 +14,8 @@ export const CalenderView = ({ nameExists, nameInput }: ICalenderViewProps) => {
           <AudioPLayer />
 
           <h1>{nameInput + "s"} adventskalender</h1>
+
+          <Calender />
         </article>
       )}
     </>
