@@ -7,121 +7,145 @@ export const Calender = () => {
       dateOfThisDay: 1,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag1.png",
     },
     {
       dateOfThisDay: 2,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag2.png",
     },
     {
       dateOfThisDay: 3,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag3.png",
     },
     {
       dateOfThisDay: 4,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag4.png",
     },
     {
       dateOfThisDay: 5,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag5.png",
     },
     {
       dateOfThisDay: 6,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag6.png",
     },
     {
       dateOfThisDay: 7,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag7.png",
     },
     {
       dateOfThisDay: 8,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag8.png",
     },
     {
       dateOfThisDay: 9,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag9.png",
     },
     {
       dateOfThisDay: 10,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag10.png",
     },
     {
       dateOfThisDay: 11,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag11.png",
     },
     {
       dateOfThisDay: 12,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag12.png",
     },
     {
       dateOfThisDay: 13,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag13.png",
     },
     {
       dateOfThisDay: 14,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag14.png",
     },
     {
       dateOfThisDay: 15,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag15.png",
     },
     {
       dateOfThisDay: 16,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag16.png",
     },
     {
       dateOfThisDay: 17,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag17.png",
     },
     {
       dateOfThisDay: 18,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag18.png",
     },
     {
       dateOfThisDay: 19,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag19.png",
     },
     {
       dateOfThisDay: 20,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag20.png",
     },
     {
       dateOfThisDay: 21,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag21.png",
     },
     {
       dateOfThisDay: 22,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag22.png",
     },
     {
       dateOfThisDay: 23,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag23.png",
     },
     {
       dateOfThisDay: 24,
       hasBeenOpened: false,
       memeUrl: "",
+      coverImg: "/dag24.png",
     },
   ];
 
@@ -155,13 +179,18 @@ export const Calender = () => {
   return (
     <>
       {calender.map((day) => (
-        <p
+        <div
           onClick={() => openCalenderDoor(day.dateOfThisDay)}
           key={day.dateOfThisDay}
+          className="coverImagecContainer"
         >
-          {day.dateOfThisDay}
-          <span>{day.hasBeenOpened ? "öppnad" : ""}</span>
-        </p>
+          <p id={day.hasBeenOpened ? "doorOpened" : ""}>{day.dateOfThisDay}</p>
+          <img
+            src={day.coverImg}
+            alt="cover image"
+            className="coverImage"
+          ></img>
+        </div>
       ))}
     </>
   );
