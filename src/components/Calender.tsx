@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IDayOfMonth } from "../models/IDayOfMonth";
+import "../styles/Calender.css";
 
 export const Calender = () => {
   const calenderBase: IDayOfMonth[] = [
@@ -178,20 +179,24 @@ export const Calender = () => {
 
   return (
     <>
-      {calender.map((day) => (
-        <div
-          onClick={() => openCalenderDoor(day.dateOfThisDay)}
-          key={day.dateOfThisDay}
-          className="coverImagecContainer"
-        >
-          <p id={day.hasBeenOpened ? "doorOpened" : ""}>{day.dateOfThisDay}</p>
-          <img
-            src={day.coverImg}
-            alt="cover image"
-            className="coverImage"
-          ></img>
-        </div>
-      ))}
+      <section className="calenderContainer">
+        {calender.map((day) => (
+          <div
+            onClick={() => openCalenderDoor(day.dateOfThisDay)}
+            key={day.dateOfThisDay}
+            className="coverImagecContainer"
+          >
+            <p id={day.hasBeenOpened ? "doorOpened" : ""}>
+              {day.dateOfThisDay}
+            </p>
+            <img
+              src={day.coverImg}
+              alt="cover image"
+              className="coverImage"
+            ></img>
+          </div>
+        ))}
+      </section>
     </>
   );
 };

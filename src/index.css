@@ -25,9 +25,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 2rem;
   display: flex;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -48,34 +49,6 @@ button {
   color: #ffffff;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-
-.coverImagecContainer{
-  height: 100px;
-  width: 100px;
-  position: relative;
-}
-
-.coverImage{
-  height: 100px;
-  width: 100px;
-}
-
-.coverImagecContainer > p {
-  background-color: #ffffff;
-  width: 35%;
-  height: 35%;
-  border-radius: 0 0 0 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-top: -1px;
-  margin-right: -1px;
-  padding-top: 0.2rem;
-}
-
-#doorOpened{
-  background-color: #159d15;
 }
 
 

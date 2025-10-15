@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import "../styles/AudioPlayer.css";
 
 export const AudioPLayer = () => {
   const [musicPlaying, setMusicPlaying] = useState(false);
@@ -23,8 +24,10 @@ export const AudioPLayer = () => {
 
   return (
     <>
-      <p>Kom i julstämning</p>
-      <button onClick={toggleMusic}>{musicPlaying ? "pause" : "play"}</button>
+      <section>
+        <p>Kom i julstämning</p>
+        <button onClick={toggleMusic}>{musicPlaying ? "pause" : "play"}</button>
+      </section>
     </>
   );
 };
