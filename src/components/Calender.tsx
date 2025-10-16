@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IDayOfMonth } from "../models/IDayOfMonth";
 import "../styles/Calender.css";
+import { IMemeResponse } from "../models/IMemeResponse";
 
 export const Calender = () => {
   const calenderBase: IDayOfMonth[] = [
@@ -163,12 +164,42 @@ export const Calender = () => {
     );
   }, []);
 
+  useEffect(() => {
+    async function getMemes() {
+      const response = await fetch("https://meme-api.com/gimme/memes/24");
+      const memeresponse: IMemeResponse = await response.json();
+      console.log("memeresponse", memeresponse);
+
+      console.log("memeresponse count", memeresponse.count);
+
+      if (calender.length && memeresponse.memes) {
+        const updatedCalender = calender.map((day, i) => {
+          return {
+            ...day,
+            memeUrl: memeresponse.memes[i]?.url ?? "",
+          };
+        });
+        console.log("updatedCalender with memes", updatedCalender);
+
+        setCalender(updatedCalender);
+        localStorage.setItem("memeCalender", JSON.stringify(updatedCalender));
+      }
+
+      //lägg till logik för att fetcha igen om counten är under 24 och
+      // lägg då till url på de som inte har någon än
+    }
+
+    if (calender[1]?.memeUrl === "") {
+      getMemes();
+    }
+  }, []);
+
   console.log("calender", calender);
 
   const openCalenderDoor = (clickedDay: number) => {
     const updatedCalender = calender.map((day) => {
       if (day.dateOfThisDay === clickedDay) {
-        day.hasBeenOpened = true;
+        return { ...day, hasBeenOpened: true };
       }
       return day;
     });
@@ -195,11 +226,7 @@ export const Calender = () => {
               className="coverImage"
               id={day.hasBeenOpened ? "doorOpened" : ""}
             ></img>
-            <img
-              className="memeImage"
-              src="https://preview.redd.it/2wpfufhz8p751.jpg?width=640&crop=smart&auto=webp&s=dab7d5eba791f3a884b0c0614630c99e38c46c4d"
-              alt=""
-            />
+            <img className="memeImage" src={day.memeUrl} alt="" />
           </div>
         ))}
       </section>
