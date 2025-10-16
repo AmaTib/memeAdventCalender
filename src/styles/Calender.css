@@ -20,6 +20,8 @@
   height: 100px;
   width: 100px;
   border-radius: 0.5rem;
+  opacity: 0.7;  
+  /* opacity property tillfällig under utveckling, ta bort sen!!!  */
 }
 
 .coverImage:hover{
@@ -37,8 +39,25 @@
   margin-top: -1px;
   margin-right: -1px;
   padding-top: 0.2rem;
+  z-index: 1;
+}
+
+#doorOpened.coverImage{
+  display: none;
 }
 
 #doorOpened{
   background-color: #159d15;
+}
+
+.memeImage{
+  height: inherit;
+  width: inherit;
+  object-fit: contain;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: 0.5rem;
+
 }

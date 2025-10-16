@@ -193,7 +193,13 @@ export const Calender = () => {
               src={day.coverImg}
               alt="cover image"
               className="coverImage"
+              id={day.hasBeenOpened ? "doorOpened" : ""}
             ></img>
+            <img
+              className="memeImage"
+              src="https://preview.redd.it/2wpfufhz8p751.jpg?width=640&crop=smart&auto=webp&s=dab7d5eba791f3a884b0c0614630c99e38c46c4d"
+              alt=""
+            />
           </div>
         ))}
       </section>
