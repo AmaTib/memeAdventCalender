@@ -166,33 +166,36 @@ export const Calender = () => {
 
   useEffect(() => {
     async function getMemes() {
-      const response = await fetch("https://meme-api.com/gimme/memes/24");
+      const response = await fetch("https://meme-api.com/gimme/memes/25");
       const memeresponse: IMemeResponse = await response.json();
-      console.log("memeresponse", memeresponse);
 
-      console.log("memeresponse count", memeresponse.count);
+      /*  console.log("memeresponse", memeresponse);
+      console.log("memeresponse count", memeresponse.count); */
 
-      if (calender.length && memeresponse.memes) {
-        const updatedCalender = calender.map((day, i) => {
-          return {
-            ...day,
-            memeUrl: memeresponse.memes[i]?.url ?? "",
-          };
-        });
-        console.log("updatedCalender with memes", updatedCalender);
+      if (!memeresponse.memes) return;
 
-        setCalender(updatedCalender);
-        localStorage.setItem("memeCalender", JSON.stringify(updatedCalender));
-      }
+      let memeIndex = 0;
+      const updatedCalender = calender.map((day) => {
+        if (day.memeUrl && day.memeUrl !== "") {
+          return day;
+        }
 
-      //lägg till logik för att fetcha igen om counten är under 24 och
-      // lägg då till url på de som inte har någon än
+        return {
+          ...day,
+          memeUrl: memeresponse.memes[memeIndex++]?.url ?? "",
+        };
+      });
+      /*  console.log("updatedCalender with memes", updatedCalender); */
+
+      setCalender(updatedCalender);
+      localStorage.setItem("memeCalender", JSON.stringify(updatedCalender));
     }
 
-    if (calender[1]?.memeUrl === "") {
+    if (calender.some((day) => day.memeUrl === "")) {
+      console.log("getting memes");
       getMemes();
     }
-  }, []);
+  }, [calender]);
 
   console.log("calender", calender);
 
