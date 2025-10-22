@@ -166,11 +166,24 @@ export const Calender = () => {
 
   useEffect(() => {
     async function getMemes() {
-      const response = await fetch("https://meme-api.com/gimme/memes/25");
+      const memeSubreddits = [
+        "memes",
+        "meme",
+        "MemesIRL",
+        "Funnymemes",
+        "bestmemes",
+      ];
+      const chosenSubreddit =
+        memeSubreddits[Math.floor(Math.random() * memeSubreddits.length)];
+      console.log("subreddit:", chosenSubreddit);
+
+      const response = await fetch(
+        `https://meme-api.com/gimme/${chosenSubreddit}/12`
+      );
       const memeresponse: IMemeResponse = await response.json();
 
-      /*  console.log("memeresponse", memeresponse);
-      console.log("memeresponse count", memeresponse.count); */
+      console.log("memeresponse", memeresponse);
+      console.log("memeresponse count", memeresponse.count);
 
       if (!memeresponse.memes) return;
 
