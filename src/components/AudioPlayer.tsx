@@ -26,7 +26,14 @@ export const AudioPLayer = () => {
     <>
       <section>
         <p>Kom i julstämning</p>
-        <button onClick={toggleMusic}>{musicPlaying ? "pause" : "play"}</button>
+        <img
+          onClick={toggleMusic}
+          src={musicPlaying ? "/icons8-pause-100.png" : "/icons8-play-100.png"}
+          alt="play/pause"
+        />
+        {musicPlaying && (
+          <img src="/santa-dance-christmas-music.gif" alt="dancing santa" />
+        )}
       </section>
     </>
   );

@@ -4,3 +4,9 @@ section{
     align-items: center;
     margin: 1rem;
 }
+
+img{
+    height: 3rem;
+    width: 3rem;
+    margin: 0 0.5rem;
+}
