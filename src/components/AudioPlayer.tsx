@@ -32,13 +32,14 @@ export const AudioPLayer = () => {
           src={musicPlaying ? "/icons8-pause-100.png" : "/icons8-play-100.png"}
           alt="play/pause"
         />
-        {musicPlaying && (
-          <img
-            className="audioplayerImg"
-            src="/santa-dance-christmas-music.gif"
-            alt="dancing santa"
-          />
-        )}
+
+        <img
+          className="audioplayerImg"
+          src={
+            musicPlaying ? "/santa-dance-christmas-music.gif" : "/favicon.png"
+          }
+          alt="dancing santa"
+        />
       </section>
     </>
   );
