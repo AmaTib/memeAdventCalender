@@ -174,6 +174,7 @@ export const Calender = () => {
         "MemesIRL",
         "Funnymemes",
         "bestmemes",
+        "AnimalMemes",
       ];
       const chosenSubreddit =
         memeSubreddits[Math.floor(Math.random() * memeSubreddits.length)];
