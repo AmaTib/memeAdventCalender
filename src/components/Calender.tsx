@@ -203,10 +203,8 @@ export const Calender = () => {
           memeUrl: memeresponse.memes[memeIndex++]?.url ?? "",
         };
       });
-      /*  console.log("updatedCalender with memes", updatedCalender); */
 
       setCalender(updatedCalender);
-      localStorage.setItem("memeCalender", JSON.stringify(updatedCalender));
     }
 
     if (calender.some((day) => day.memeUrl === "")) {
@@ -225,7 +223,7 @@ export const Calender = () => {
       return day;
     });
 
-    if (currentMonth === 12) {
+    if (currentMonth === 11) {
       if (clickedDay <= currentDay) {
         console.log("updaterar calender");
 
