@@ -152,11 +152,13 @@ export const Calender = () => {
     },
   ];
 
-  //när man klickar på en dag kolla att dateofthisday inte överstiger datumet som är den dagen,
-  // man ska inte kunna öppna framtida luckor men man kan öppna luckor bak i tiden om de ej blivit öppnade tidigare.
-
   const [calender, setCalender] = useState<IDayOfMonth[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const date = new Date();
+  const currentDay = date.getDate();
+  const currentMonth = date.getMonth() + 1;
+
+  console.log("todays day:", currentDay, "todays month:", currentMonth);
 
   useEffect(() => {
     setCalender(
@@ -223,8 +225,18 @@ export const Calender = () => {
       return day;
     });
 
-    setCalender(updatedCalender);
-    localStorage.setItem("memeCalender", JSON.stringify(updatedCalender));
+    if (currentMonth === 12) {
+      if (clickedDay <= currentDay) {
+        console.log("updaterar calender");
+
+        setCalender(updatedCalender);
+        localStorage.setItem("memeCalender", JSON.stringify(updatedCalender));
+      } else {
+        alert("Tålamod tålamod, det är inte " + clickedDay + " December än");
+      }
+    } else {
+      alert("Tålamod tålamod, det är inte December än");
+    }
   };
 
   function clearlocalstorage() {
