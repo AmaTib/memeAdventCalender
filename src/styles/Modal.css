@@ -1,0 +1,21 @@
+
+.modalContainer{
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    bottom: 0;
+    padding:  3rem 2rem;
+    z-index: 4;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalContainer > button:first-of-type{
+    align-self: flex-end;
+    background-color: transparent;
+    color: black;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0;
+}

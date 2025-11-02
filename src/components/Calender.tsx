@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { IDayOfMonth } from "../models/IDayOfMonth";
 import "../styles/Calender.css";
 import { IMemeResponse } from "../models/IMemeResponse";
+import { Modal } from "./Modal";
 
 export const Calender = () => {
   const calenderBase: IDayOfMonth[] = [
@@ -155,6 +156,7 @@ export const Calender = () => {
   // man ska inte kunna öppna framtida luckor men man kan öppna luckor bak i tiden om de ej blivit öppnade tidigare.
 
   const [calender, setCalender] = useState<IDayOfMonth[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setCalender(
@@ -224,6 +226,16 @@ export const Calender = () => {
     localStorage.setItem("memeCalender", JSON.stringify(updatedCalender));
   };
 
+  function clearlocalstorage() {
+    localStorage.removeItem("memeCalender");
+    localStorage.removeItem("memeCalenderUserName");
+    location.reload();
+  }
+
+  function toggleModal() {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <>
       <section className="calenderContainer">
@@ -246,6 +258,14 @@ export const Calender = () => {
           </div>
         ))}
       </section>
+
+      {calender.every((day) => day.hasBeenOpened) && (
+        <button onClick={toggleModal}>Börja om</button>
+      )}
+
+      {isOpen && (
+        <Modal closeModal={toggleModal} clearStorage={clearlocalstorage} />
+      )}
     </>
   );
 };
