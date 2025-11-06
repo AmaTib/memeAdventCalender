@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { IDayOfMonth } from "../models/IDayOfMonth";
 import "../styles/Calender.css";
-import { IMemeResponse } from "../models/IMemeResponse";
+/* import { IMemeResponse } from "../models/IMemeResponse"; */
 import { Modal } from "./Modal";
 import { calendarBase } from "../assets/calendarBase";
+import { memes } from "../assets/memes";
 
 export const Calender = () => {
   const [calender, setCalender] = useState<IDayOfMonth[]>([]);
@@ -21,42 +22,36 @@ export const Calender = () => {
   }, []);
 
   useEffect(() => {
-    async function getMemes() {
-      const memeSubreddits = [
-        "memes",
-        "meme",
-        "MemesIRL",
-        "Funnymemes",
-        "bestmemes",
-        "AnimalMemes",
-      ];
-      const chosenSubreddit =
-        memeSubreddits[Math.floor(Math.random() * memeSubreddits.length)];
-      console.log("subreddit:", chosenSubreddit);
+    function getMemes() {
+      const positionNumbers: number[] = [];
+      for (let i = 0; i < 24; i++) {
+        let num = Math.floor(Math.random() * 26);
 
-      const response = await fetch(
-        `https://meme-api.com/gimme/${chosenSubreddit}/12`
-      );
-      const memeresponse: IMemeResponse = await response.json();
-
-      console.log("memeresponse", memeresponse);
-      console.log("memeresponse count", memeresponse.count);
-
-      if (!memeresponse.memes) return;
-
-      let memeIndex = 0;
-      const updatedCalender = calender.map((day) => {
-        if (day.memeUrl && day.memeUrl !== "") {
-          return day;
+        while (positionNumbers.includes(num)) {
+          num = Math.floor(Math.random() * 26);
         }
 
-        return {
-          ...day,
-          memeUrl: memeresponse.memes[memeIndex++]?.url ?? "",
-        };
-      });
+        positionNumbers.push(num);
+      }
 
-      setCalender(updatedCalender);
+      console.log("positionNumbers:", positionNumbers);
+
+      if (positionNumbers.length === 24) {
+        const updatedCalender = calender.map((day, i) => {
+          if (day.memeUrl && day.memeUrl !== "") {
+            return day;
+          }
+
+          return {
+            ...day,
+            memeUrl: memes[positionNumbers[i]]?.url ?? "",
+          };
+        });
+
+        console.log("updatedCalender", updatedCalender);
+
+        setCalender(updatedCalender);
+      }
     }
 
     if (calender.some((day) => day.memeUrl === "")) {
