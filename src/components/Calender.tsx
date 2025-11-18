@@ -5,10 +5,14 @@ import "../styles/Calender.css";
 import { Modal } from "./Modal";
 import { calendarBase } from "../assets/calendarBase";
 import { memes } from "../assets/memes";
+import { MemeModal } from "./MemeModal";
 
 export const Calender = () => {
   const [calender, setCalender] = useState<IDayOfMonth[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isMemeModalOpen, setIsMemeModalOpen] = useState(true);
+  const [clickedMemeImg, setClickedMemeImg] = useState("");
+
   const date = new Date();
   const currentDay = date.getDate();
   const currentMonth = date.getMonth() + 1;
@@ -62,7 +66,7 @@ export const Calender = () => {
 
   console.log("calender", calender);
 
-  const openCalenderDoor = (clickedDay: number) => {
+  const openCalenderDoor = (clickedDay: number, imageUrl: string) => {
     const updatedCalender = calender.map((day) => {
       if (day.dateOfThisDay === clickedDay) {
         return { ...day, hasBeenOpened: true };
@@ -72,9 +76,9 @@ export const Calender = () => {
 
     if (currentMonth === 12) {
       if (clickedDay <= currentDay) {
-        console.log("updaterar calender");
-
+        setClickedMemeImg(imageUrl);
         setCalender(updatedCalender);
+        setIsMemeModalOpen(true);
         localStorage.setItem("memeCalender", JSON.stringify(updatedCalender));
       } else {
         alert("Tålamod tålamod, det är inte " + clickedDay + " December än");
@@ -99,20 +103,26 @@ export const Calender = () => {
       <section className="calenderContainer">
         {calender.map((day) => (
           <div
-            onClick={() => openCalenderDoor(day.dateOfThisDay)}
+            onClick={() => {
+              {
+                day.hasBeenOpened && setIsMemeModalOpen(!isMemeModalOpen);
+              }
+              setClickedMemeImg(day.memeUrl);
+            }}
             key={day.dateOfThisDay}
             className="coverImagecContainer"
           >
             <p id={day.hasBeenOpened ? "doorOpened" : ""}>
               {day.dateOfThisDay}
             </p>
+            <img className="memeImage" src={day.memeUrl} alt="" />
             <img
+              onClick={() => openCalenderDoor(day.dateOfThisDay, day.memeUrl)}
               src={day.coverImg}
               alt="cover image"
               className="coverImage"
               id={day.hasBeenOpened ? "doorOpened" : ""}
             ></img>
-            <img className="memeImage" src={day.memeUrl} alt="" />
           </div>
         ))}
       </section>
@@ -123,6 +133,15 @@ export const Calender = () => {
 
       {isOpen && (
         <Modal closeModal={toggleModal} clearStorage={clearlocalstorage} />
+      )}
+
+      {isMemeModalOpen && (
+        <MemeModal
+          imgSource={clickedMemeImg}
+          close={() => {
+            setIsMemeModalOpen(!isMemeModalOpen);
+          }}
+        />
       )}
     </>
   );
