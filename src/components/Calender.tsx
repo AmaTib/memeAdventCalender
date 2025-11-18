@@ -10,7 +10,7 @@ import { MemeModal } from "./MemeModal";
 export const Calender = () => {
   const [calender, setCalender] = useState<IDayOfMonth[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [isMemeModalOpen, setIsMemeModalOpen] = useState(true);
+  const [isMemeModalOpen, setIsMemeModalOpen] = useState(false);
   const [clickedMemeImg, setClickedMemeImg] = useState("");
 
   const date = new Date();

@@ -2,7 +2,7 @@
 .audioPlayerContainer{
     display: flex;
     align-items: center;
-    margin: 1rem;
+    /* margin: 1rem; */
 }
 
 .audioplayerImg{
