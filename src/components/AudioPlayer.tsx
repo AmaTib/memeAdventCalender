@@ -24,7 +24,7 @@ export const AudioPLayer = () => {
 
   return (
     <>
-      <section>
+      <section className="audioPlayerContainer">
         <p>Kom i julstämning</p>
         <img
           className="audioplayerImg"

@@ -1,0 +1,36 @@
+.memeModalBackground{
+    background-color: rgba(255, 255, 255, 0.788);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.memeModalBackground > div{
+    background-color: rgb(255, 255, 255);
+    width: 320px;
+    min-height: 300px;
+    border: solid var(--red-color) 1px;
+    border-radius: 10px;
+    padding: 0.5rem;
+
+}
+
+.memeModalBackground > div > img{
+    width: 95%;
+}
+
+.memeModalBackground > div > button{
+    margin: 2rem 0 1rem 0;
+}
+
+@media only screen and (min-width: 600px) {
+    .memeModalBackground > div{
+    width: 500px;
+  
+}
+}
