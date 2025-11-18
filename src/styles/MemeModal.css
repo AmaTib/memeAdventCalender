@@ -17,10 +17,15 @@
     border: solid var(--red-color) 1px;
     border-radius: 10px;
     padding: 0.5rem;
+
 }
 
 .memeModalBackground > div > img{
     width: 95%;
+}
+
+.memeModalBackground > div > button{
+    margin: 2rem 0 1rem 0;
 }
 
 @media only screen and (min-width: 600px) {

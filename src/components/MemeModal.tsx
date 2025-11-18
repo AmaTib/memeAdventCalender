@@ -9,9 +9,9 @@ export const MemeModal = ({ imgSource, close }: IMemeModalProps) => {
     <>
       <section className="memeModalBackground">
         <div>
-          <button onClick={close}>X</button>
           <h2></h2>
           <img src={imgSource} alt="meme of the day" />
+          <button onClick={close}>Stäng</button>
         </div>
       </section>
     </>
