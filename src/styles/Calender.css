@@ -2,8 +2,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
-    grid-column-gap: 1rem;
-    grid-row-gap: 1rem; 
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem; 
 }
 
 .coverImagecContainer{
@@ -16,9 +16,7 @@
 .coverImage{
   height: 95px;
   width: 95px;
-  border-radius: 0.5rem;
-  opacity: 0.7;  
-  /* opacity property tillfällig under utveckling, ta bort sen!!!  */
+  border-radius: 0.2rem;
 }
 
 .coverImage:hover{
@@ -44,7 +42,7 @@
 }
 
 #doorOpened{
-  background-color: #159d159c;
+  background-color: #18b948;
 }
 
 .memeImage{
@@ -55,7 +53,7 @@
   right: 0;
   top: 0;
   z-index: -1;
-  border-radius: 0.5rem;
+  border-radius: 0.2rem;
 
 }
 
@@ -69,4 +67,8 @@
     height: 150px;
     width: 150px;
   }
+
+  .coverImagecContainer > p {
+  padding-top: 0.7rem;
+}
 }
