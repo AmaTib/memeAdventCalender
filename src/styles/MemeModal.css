@@ -16,7 +16,7 @@
     min-height: 300px;
     border: solid var(--red-color) 1px;
     border-radius: 10px;
-    padding: 0.5rem;
+    padding: 2rem 0.5rem;
 
 }
 
@@ -25,7 +25,7 @@
 }
 
 .memeModalBackground > div > button{
-    margin: 2rem 0 1rem 0;
+    margin: 2rem 0 0 0;
 }
 
 @media only screen and (min-width: 600px) {
