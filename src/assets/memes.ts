@@ -14,9 +14,6 @@ export const memes: IMeme[] = [
     url: "https://preview.redd.it/a-doctor-is-v0-02h46isg9hzf1.jpeg?width=320&crop=smart&auto=webp&s=926409b84336889d6197020c6d053483bdbd9020",
   },
   {
-    url: "https://preview.redd.it/here-we-go-again-v0-2piy5rd5rjzf1.jpeg?width=640&crop=smart&auto=webp&s=aaf24a784cd1686988cc487853b953babae5bf0e",
-  },
-  {
     url: "https://preview.redd.it/hey-mom-v0-36wmiu3ajnwf1.jpeg?width=1080&crop=smart&auto=webp&s=9eecca7c5d26309a62658acaae0608e6ce7028e6",
   },
   {
@@ -78,5 +75,35 @@ export const memes: IMeme[] = [
   },
   {
     url: "https://preview.redd.it/olympic-level-of-uselessness-v0-fuav74442wxf1.jpeg?width=1080&crop=smart&auto=webp&s=d29a226893380cd14064ededefea12d997af1935",
+  },
+  {
+    url: "https://preview.redd.it/trendy-jeezzy-v0-hrv112jq7f1g1.jpeg?width=640&crop=smart&auto=webp&s=d3605caab2c538e360c0328e1d2cb07732ddc9e4",
+  },
+  {
+    url: "https://preview.redd.it/small-talk-big-panic-v0-900c2o5i0i1g1.jpeg?width=320&crop=smart&auto=webp&s=a065cecd7d29ccdd8a4348d584d13532fe29e93c",
+  },
+  {
+    url: "https://preview.redd.it/act-natural-v0-z79qt7w7i50g1.jpeg?width=1080&crop=smart&auto=webp&s=6856256202e658668843d6806a16d55b2264f1b1",
+  },
+  {
+    url: "https://preview.redd.it/this-got-me-laughing-way-too-hard-v0-sptpgryzog0g1.jpeg?width=640&crop=smart&auto=webp&s=81ccb1e2880a58e9f7683c1437da023870beb650",
+  },
+  {
+    url: "https://pleated-jeans.com/wp-content/uploads/2024/04/funny-relatable-memes-of-the-week-4-18-24-48.webp",
+  },
+  {
+    url: "https://pleated-jeans.com/wp-content/uploads/2024/04/funny-relatable-memes-of-the-week-4-18-24-25.webp",
+  },
+  {
+    url: "https://i.pinimg.com/736x/ec/fe/a4/ecfea4111aa36e763b26253f50247999.jpg",
+  },
+  {
+    url: "https://www.boredpanda.com/blog/wp-content/uploads/2023/06/funny-memes-sarcasm-24-6482c37483abe__700.jpg",
+  },
+  {
+    url: "https://www.boredpanda.com/blog/wp-content/uploads/2023/06/funny-memes-sarcasm-13-6482b6ee57536__700.jpg",
+  },
+  {
+    url: "https://www.boredpanda.com/blog/wp-content/uploads/2023/06/funny-memes-sarcasm-6-6481e836a451b__700.jpg",
   },
 ];

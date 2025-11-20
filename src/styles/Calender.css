@@ -1,7 +1,4 @@
 .calenderContainer{
-    border: 5px solid var(--red-color);
-    padding: 1rem;
-    margin: 2rem 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -10,15 +7,15 @@
 }
 
 .coverImagecContainer{
-  height: 100px;
-  width: 100px;
+  height: 95px;
+  width: 95px;
   position: relative;
   justify-self: center;
 }
 
 .coverImage{
-  height: 100px;
-  width: 100px;
+  height: 95px;
+  width: 95px;
   border-radius: 0.5rem;
   opacity: 0.7;  
   /* opacity property tillfällig under utveckling, ta bort sen!!!  */
@@ -60,4 +57,16 @@
   z-index: -1;
   border-radius: 0.5rem;
 
+}
+
+@media only screen and (min-width: 600px) {
+  .coverImagecContainer{
+   height: 150px;
+    width: 150px;
+  }
+
+  .coverImage{
+    height: 150px;
+    width: 150px;
+  }
 }
