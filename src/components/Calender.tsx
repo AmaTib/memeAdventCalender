@@ -29,10 +29,10 @@ export const Calender = () => {
     function getMemes() {
       const positionNumbers: number[] = [];
       for (let i = 0; i < 24; i++) {
-        let num = Math.floor(Math.random() * 26);
+        let num = Math.floor(Math.random() * memes.length);
 
         while (positionNumbers.includes(num)) {
-          num = Math.floor(Math.random() * 26);
+          num = Math.floor(Math.random() * memes.length);
         }
 
         positionNumbers.push(num);
@@ -115,7 +115,12 @@ export const Calender = () => {
             <p id={day.hasBeenOpened ? "doorOpened" : ""}>
               {day.dateOfThisDay}
             </p>
-            <img className="memeImage" src={day.memeUrl} alt="" />
+            <img
+              loading="lazy"
+              className="memeImage"
+              src={day.memeUrl}
+              alt=""
+            />
             <img
               onClick={() => openCalenderDoor(day.dateOfThisDay, day.memeUrl)}
               src={day.coverImg}

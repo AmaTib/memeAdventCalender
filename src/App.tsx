@@ -19,6 +19,29 @@ function App() {
     setLoading(false);
   }, []);
 
+  function addName() {
+    const cleanedNameInput = nameInput.trim();
+
+    if (cleanedNameInput.length === 0) {
+      alert("Skriv ditt namn");
+      return;
+    }
+
+    if (cleanedNameInput.length < 2) {
+      alert("Namnet måste vara längre än en bokstav");
+      return;
+    }
+
+    if (cleanedNameInput.length > 15) {
+      alert("Namnet får innehålla max 15 bokstäver");
+      return;
+    }
+
+    localStorage.setItem("memeCalenderUserName", cleanedNameInput);
+    console.log(cleanedNameInput);
+    setNameExists(true);
+  }
+
   console.log(nameInput, nameExists);
 
   if (loading) return <p>loading...</p>;
@@ -38,17 +61,7 @@ function App() {
               setNameInput(e.target.value);
             }}
           />
-          <button
-            onClick={() => {
-              if (nameInput != "") {
-                localStorage.setItem("memeCalenderUserName", nameInput);
-                console.log(nameInput);
-                setNameExists(true);
-              }
-            }}
-          >
-            Bekräfta
-          </button>
+          <button onClick={addName}>Bekräfta</button>
         </article>
       ) : (
         <>
