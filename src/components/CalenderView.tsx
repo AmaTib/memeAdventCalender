@@ -11,7 +11,9 @@ export const CalenderView = ({ nameExists, nameInput }: ICalenderViewProps) => {
     <>
       {nameExists && (
         <article>
-          <h1>{nameInput + "s"} adventskalender</h1>
+          <h1>
+            <span className="redText">{nameInput + "s"}</span> adventskalender
+          </h1>
 
           <AudioPLayer />
 
