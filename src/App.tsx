@@ -51,7 +51,16 @@ function App() {
           </button>
         </article>
       ) : (
-        <CalenderView nameExists={nameExists} nameInput={nameInput} />
+        <>
+          <CalenderView nameExists={nameExists} nameInput={nameInput} />
+          <button
+            onClick={() => {
+              setNameExists(false);
+            }}
+          >
+            Redigera ditt namn
+          </button>
+        </>
       )}
     </>
   );
