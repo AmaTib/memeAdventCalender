@@ -106,4 +106,13 @@ export const memes: IMeme[] = [
   {
     url: "https://www.boredpanda.com/blog/wp-content/uploads/2023/06/funny-memes-sarcasm-6-6481e836a451b__700.jpg",
   },
+  {
+    url: "https://preview.redd.it/everyday-goes-like-this-v0-hj0f4m06o62g1.jpeg?width=640&crop=smart&auto=webp&s=b82db177b3420b2ec17f3f5afc64dfb226fd52a4",
+  },
+  {
+    url: "https://preview.redd.it/autopilot-driving-v0-3ib8vrt3rh1g1.jpeg?width=640&crop=smart&auto=webp&s=4a91c969356ea437fd41a6b17466fb91e5f68972",
+  },
+  {
+    url: "https://preview.redd.it/yep-im-cooked-v0-nqwzoaawvu0g1.jpeg?width=1080&crop=smart&auto=webp&s=63a3871b61ec91968c91cd188d1d8d5e717d1dc3",
+  },
 ];
